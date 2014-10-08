@@ -1,4 +1,4 @@
-simple-scroll
+&lt;simple-scroll&gt;
 =============
 
 Wrapper web component for scrolling content. Based on iscroll lib
