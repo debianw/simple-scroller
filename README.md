@@ -1,4 +1,4 @@
-&lt;simple-scroll&gt;
+&lt;simple-scroller&gt;
 =============
 
 Wrapper web component for scrolling content. Based on iscroll lib
@@ -6,14 +6,14 @@ Wrapper web component for scrolling content. Based on iscroll lib
 ## Instalation
 
 ``` bash
-$ bower install simple-scroll
+$ bower install simple-scroller
 ```
 
 ## Usage
 ``` html
-<simple-scroll>
+<simple-scroller>
   <ul>
     <li>scrollable content</li>
   </ul>
-</simple-scroll>
+</simple-scroller>
 ```

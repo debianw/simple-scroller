@@ -1,5 +1,5 @@
 {
-  "name": "simple-scroll",
+  "name": "simple-scroller",
   "version": "0.0.1",
   "description": "Wrapper web component for scrolling content. Based on iscroll lib",
   "keywords": [
@@ -10,7 +10,7 @@
     "Walter R Chacon S"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/debianw/simple-scroll",
+  "homepage": "https://github.com/debianw/simple-scroller",
   "ignore": [
     "**/.*",
     "node_modules",
