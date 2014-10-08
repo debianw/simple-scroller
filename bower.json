@@ -1,0 +1,26 @@
+{
+  "name": "simple-scroll",
+  "version": "0.0.1",
+  "description": "Wrapper web component for scrolling content. Based on iscroll lib",
+  "keywords": [
+    "Polymer",
+    "web-components"
+  ],
+  "authors": [
+    "Walter R Chacon S"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/debianw/simple-scroll",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "iscroll": "~5.1.3",
+    "polymer": "~0.4.2"
+  }
+}

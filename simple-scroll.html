@@ -1,0 +1,178 @@
+<link rel="import" href="../polymer/polymer.html">
+<script src="../iscroll/build/iscroll-probe.js"></script>
+
+<polymer-element name="simple-scroll">
+  <template>
+
+    <style>
+      :host {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;  
+      }
+
+      #wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-text-size-adjust: none;
+        -moz-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        -o-text-size-adjust: none;
+        text-size-adjust: none;
+      }
+
+      #scroller {
+        position: absolute;
+        width: 100%;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        -o-transform: translateZ(0);
+        tranform: translateZ(0);
+      }
+    </style>
+    
+    <div id="wrapper">
+      <div id="scroller">
+        <content></content>
+      </div>
+    </div>
+
+  </template>
+
+  
+  <script>
+  Polymer({
+
+    publish: {
+
+      /**
+       * Fired when scroll
+       *
+       * @event scroll
+       * @param {Object} detail
+       *   @param {Object} detail.target holds current status of the scroll
+       */
+
+      /**
+       * Enable zoom
+       *
+       * @attribute zoom
+       * @type boolean
+       * @default false
+       */
+
+      zoom: false,
+
+      /**
+       * Enable horizontal scroll
+       *
+       * @attribute scrollX
+       * @type boolean
+       * @default false
+       */
+
+      scrollX: false,
+
+      /**
+       * Enable vertical scroll
+       *
+       * @attribute scrollY
+       * @type boolean
+       * @default true
+       */
+
+      scrollY: true,
+
+      /**
+       * Enable scrollbars
+       *
+       * @attribute scrollbars
+       * @type boolean
+       * @default true
+       */
+
+      scrollbars: true,
+
+      /**
+       * Enable mouse wheel
+       *
+       * @attribute mouseWheel
+       * @type boolean
+       * @default true
+       */
+
+      mouseWheel: true
+    },
+
+    /**
+     *
+     */
+
+    created: function () {
+      this.origAddEventListener = this.addEventListener;
+      this.origRemoveEventListener = this.removeEventListener;
+      this.boundScrollHandler = this.scrollHandler.bind(this);
+
+      this.options = {
+        zoom: this.zoom,
+        scrollX: this.scrollX,
+        scrollY: this.scrollY,
+        scrollbars: this.scrollbars,
+        mouseWheel: this.mouseWheel,
+        probeType: 3
+      };
+    },
+
+    /**
+     *
+     */
+
+    ready: function () {
+      var self = this;
+
+      setTimeout(function () {
+        self.scroll = new IScroll(self.$.wrapper, self.options);
+        self.bind();
+      }, 0);
+
+      console.log('simple-scroll ready');
+    },
+
+    /**
+     * Bind events
+     */
+
+    bind: function () {
+      this.scroll.on('scroll', this.boundScrollHandler);
+    },
+
+    /**
+     *
+     */
+
+    scrollHandler: function () {
+      var scroll = this.scroll;
+
+      this.asyncFire('scroll', {
+        target: {
+          x: scroll.x,
+          y: scroll.y,
+          scrollTop: Math.abs(scroll.y)
+        } 
+      });
+    }
+
+  });
+  </script>
+</polymer-element>

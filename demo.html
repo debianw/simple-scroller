@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>simple-scroll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0">
+    <script src="../platform/platform.js"></script>
+    <link rel="import" href="simple-scroll.html">
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        -webkit-tap-highlight-color: transparent;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <demo-scroll></demo-scroll>
+
+    <polymer-element name="demo-scroll">
+      <template>
+        
+        <simple-scroll>
+          <template repeat="{{data}}">
+            <div>{{name}}</div>
+          </template>
+        </simple-scroll>
+
+      </template>
+
+      <script>
+        Polymer({
+          ready: function () {
+            var data = this.data = [];
+
+            for (var i = 0, len = 500; i < len; i++) {
+              data.push({
+                name: 'Item # '+i
+              });
+            }
+          }
+        });
+      </script>
+    </polymer-element>
+
+  </body>
+</html>
