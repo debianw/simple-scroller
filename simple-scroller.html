@@ -139,14 +139,8 @@
      */
 
     ready: function () {
-      var self = this;
-
-      setTimeout(function () {
-        self.scroll = new IScroll(self.$.wrapper, self.options);
-        self.bind();
-      }, 0);
-
-      console.log('simple-scroller ready');
+      this.scroll = new IScroll(this.$.wrapper, this.options);
+      this.bind();
     },
 
     /**
