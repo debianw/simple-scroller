@@ -121,6 +121,7 @@
 
     created: function () {
       this.boundScrollHandler = this.scrollHandler.bind(this);
+      this._scrollTop = 0;
 
       this.options = {
         zoom: this.zoom,
@@ -156,15 +157,34 @@
      */
 
     scrollHandler: function () {
-      var scroll = this.scroll;
+      var scroll = this.scroll
+        , scrollTop = Math.abs(scroll.y);
+
+      this.setScrollTop(scrollTop);
 
       this.asyncFire('scroll', {
         target: {
           x: scroll.x,
           y: scroll.y,
-          scrollTop: Math.abs(scroll.y)
+          scrollTop: scrollTop
         } 
       });
+    },
+
+    /**
+     * Returns the current scroll position
+     */
+
+    getScrollTop: function () {
+      return this._scrollTop;
+    },
+
+    /**
+     * Sets the current scroll position
+     */
+
+    setScrollTop: function (value) {
+      this._scrollTop = value;
     }
 
   });
