@@ -1,6 +1,6 @@
 {
   "name": "simple-scroller",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Wrapper web component for scrolling content. Based on iscroll lib",
   "keywords": [
     "Polymer",
