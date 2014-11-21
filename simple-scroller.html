@@ -1,5 +1,5 @@
-<link rel="import" href="../polymer/polymer.html">
-<script src="../iscroll/build/iscroll-probe.js"></script>
+<link rel="import" href="..//polymer/polymer.html">
+<script src="..//iscroll/build/iscroll-probe.js"></script>
 
 <polymer-element name="simple-scroller">
   <template>
@@ -140,14 +140,14 @@
 
     ready: function () {
       this.scroll = new IScroll(this.$.wrapper, this.options);
-      this.bind();
+      this.bindEvents();
     },
 
     /**
      * Bind events
      */
 
-    bind: function () {
+    bindEvents: function () {
       this.scroll.on('scroll', this.boundScrollHandler);
     },
 
