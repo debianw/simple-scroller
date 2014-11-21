@@ -140,7 +140,7 @@
       this.async(function () {
         this.scroll = new IScroll(this.$.wrapper, this.options);
         this.bindEvents();
-      });
+      }, null, 100);
     },
 
     /**
